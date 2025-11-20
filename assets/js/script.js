@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
   initNavScroll();
   initMobileMenu();
   initSwipers();
-  initFlipCards();
   initBackToTop();
   initCustomSelects();
   initBlogSection();
