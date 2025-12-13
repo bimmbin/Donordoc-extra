@@ -1604,6 +1604,12 @@ main {
         padding-left: 36px;
         padding-right: 36px;
       }
+
+      // Ensure swiper slides work with new price cards
+      .swiper-slide {
+        height: auto;
+        display: flex;
+      }
     }
 
     p,
@@ -1619,127 +1625,110 @@ main {
       font-weight: bold;
     }
 
-    .card {
-      width: 80%;
-      border-radius: 9px;
+    // New price card styles
+    .checklist {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 14px;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: #10251a;
+        font-size: 16px;
+      }
+
+      svg {
+        flex: 0 0 22px;
+      }
+    }
+
+    .price-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 34px 26px 30px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      background-color: #f1f3f5;
-      border: 0;
-      margin: 55px auto 0;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+    }
 
-      .card-header {
-        position: relative;
-        padding-top: 60px;
-        padding-bottom: 60px;
-        background-size: cover;
-        background-position: center;
-        margin: 0;
-        width: 100%;
-        border-radius: 9px 9px 0 0;
-        color: white;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    .price-icon {
+      width: 84px;
+      height: 84px;
+      border-radius: 22px;
+      background: #e8f7ee;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+    }
 
-        &.price-info__img-01 {
-          background-image: linear-gradient(to bottom,
-              rgba(235, 247, 237, 0.8),
-              rgba(209, 235, 169, 0.5)),
-            url("../img/pregnancy.webp");
-          /* Add your image path */
-        }
+    .price-title {
+      font-size: 2rem;
+      line-height: 1.1;
+      margin: 2px 0 8px;
+      font-weight: 800;
+      color: #0b1b13;
+    }
 
-        &.price-info__img-02 {
-          background-image: linear-gradient(to bottom,
-              rgba(235, 247, 237, 0.8),
-              rgba(209, 235, 169, 0.5)),
-            url("../img/health.webp");
-          /* Add your image path */
-        }
+    .price {
+      font-size: 64px;
+      line-height: 1;
+      font-weight: 900;
+      color: #0b3d23;
+      margin: 6px 0 8px;
+    }
 
-        &.price-info__img-03 {
-          background-image: linear-gradient(to bottom,
-              rgba(235, 247, 237, 0.8),
-              rgba(209, 235, 169, 0.5)),
-            url("../img/dentist.webp");
-          /* Add your image path */
-        }
+    .per {
+      color: #274b38;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
 
-        &.price-info__img-04 {
-          background-image: linear-gradient(to bottom,
-              rgba(235, 247, 237, 0.8),
-              rgba(209, 235, 169, 0.5)),
-            url("../img/operation.webp");
-          /* Add your image path */
-        }
+    .cta {
+      margin-top: 22px;
+    }
 
-        div {
-          display: flex;
-          justify-content: center;
-          background-color: #37b24d;
-          position: absolute;
-          left: 0;
-          right: 0;
-          margin: 0 auto;
-          padding: 7px 25px;
-          top: 0;
-          transform: translateY(-50%);
-          width: max-content;
-          border-radius: 9px;
-          z-index: 3;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    .price-card .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 15px 26px;
+      border-radius: 14px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      background: #37b24d;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.08);
+      transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease;
+      width: min(260px, 100%);
 
-          .plan-price {
-            font-size: 40px;
-            margin: 10px 0;
-            position: relative;
-            display: inline-flex;
-            align-items: flex-start;
-
-            span {
-              font-size: 16px;
-              margin-right: 4px;
-              line-height: 1.2;
-            }
-          }
-
-          .plan-text {
-            font-size: 14px;
-            display: inline-flex;
-            align-items: flex-end;
-            margin: 15px 0;
-          }
-        }
-
-        .plan-name {
-          font-size: 24px;
-          font-weight: bold;
-          margin: 0;
-          text-wrap: nowrap;
-        }
+      &:hover {
+        transform: translateY(-1px);
+        background: #2f9e44;
       }
+    }
 
-      .card-body {
-        padding: 20px 0 10px;
+    // Icon sizing helpers
+    .icon {
+      width: 40px;
+      height: 40px;
+      display: block;
+      color: #37b24d;
+    }
 
-        ul {
-          li {
-            font-size: 16px;
-            @media (min-width: 992px) and (max-width: 1199.98px) {
-              font-size: 14px;
-            }
-
-            @media (min-width: 768px) and (max-width: 991.98px) {
-              font-size: 15px;
-            }
-          }
-        }
-      }
-
-      .card-footer {
-        padding: 10px 0 20px;
-        background-color: transparent;
-        justify-content: center;
-        border: 0;
-      }
+    .icon-lg {
+      width: 56px;
+      height: 56px;
     }
 
     .doctor__contact {
@@ -3004,9 +2993,6 @@ main {
     gap: 20px;
   }
 
-  main .section-pricing .card {
-    width: 70%;
-  }
 
   main .blog-section .card .card-body {
     gap: 10px;
@@ -3147,16 +3133,20 @@ main {
     padding: 0 10px !important;
   }
 
-  main .section-pricing .card .card-header {
-    padding: 60px 20px;
+  main .section-pricing .price-card {
+    padding: 24px 20px 20px;
   }
 
-  main .section-pricing .card .card-header .plan-name {
-    font-size: 20px;
+  main .section-pricing .price-card .price-title {
+    font-size: 1.5rem;
   }
 
-  main .section-pricing .card .card-body ul li {
-    font-size: 13px;
+  main .section-pricing .price-card .price {
+    font-size: 48px;
+  }
+
+  main .section-pricing .price-card .checklist li {
+    font-size: 14px;
   }
 
   main .section-about h1,
@@ -3258,7 +3248,7 @@ main {
     margin-top: 20px;
   }
 
-  main .section-pricing .card, main .doctor-section .card {
+  main .doctor-section .card {
     width: 85%;
   }
 
@@ -3294,7 +3284,7 @@ main {
     height: 80px;
   }
 
-  main .section-pricing .card, main .doctor-section .card {
+  main .doctor-section .card {
     width: 100%;
   }
 }

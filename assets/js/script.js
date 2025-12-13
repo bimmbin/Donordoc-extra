@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initStickyHeader();
   initNavScroll();
   initMobileMenu();
+  initPricingCards();
   initSwipers();
   initBackToTop();
   initCustomSelects();
@@ -246,7 +247,7 @@ function initSwipers() {
   // Pricing swiper - disable autoplay by default
   const pricingSwiper = new Swiper(".pricing-swiper", {
     slidesPerView: 3,
-    spaceBetween: 10,
+    spaceBetween: 100,
     loop: true,
     grabCursor: true,
     allowTouchMove: true,
@@ -822,4 +823,91 @@ function initImageBlurUp() {
   } catch (e) {
     console.error("initImageBlurUp error:", e);
   }
+}
+
+function initPricingCards() {
+  const pricingWrapper = document.querySelector(
+    ".pricing-swiper .swiper-wrapper"
+  );
+  if (!pricingWrapper) return;
+
+  const pricingData = [
+    {
+      title: "Pregnancy Care",
+      price: "$49",
+      iconClass: "icon-lg",
+      iconSvg:
+        '<path d="M12 20a7 7 0 1 1 0-14" stroke="currentColor" stroke-width="2" stroke-linecap="round" /><path d="M12 7c1.657 0 3 1.343 3 3 0 2.25-3 4-3 4s-3-1.75-3-4c0-1.657 1.343-3 3-3Z" fill="currentColor" />',
+    },
+    {
+      title: "Health Checkup",
+      price: "$99",
+      iconClass: "icon",
+      iconSvg:
+        '<path d="M6 3v6a4 4 0 1 0 8 0V3M2 6h8M14 11a5 5 0 0 0 5 5h1a2 2 0 1 1-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />',
+    },
+    {
+      title: "Dental Care",
+      price: "$149",
+      iconClass: "icon",
+      iconSvg:
+        '<path d="M7 3c-2 0-4 2-4 5 0 6 3 8 4 8 1 0 2-2 3-2s2 2 3 2 4-2 4-8c0-3-2-5-4-5-2 0-3 1-3 1s-1-1-3-1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /><circle cx="16.8" cy="7.2" r="1.2" fill="currentColor" />',
+    },
+    {
+      title: "Operation",
+      price: "$199",
+      iconClass: "icon",
+      iconSvg:
+        '<path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />',
+    },
+  ];
+
+  const checklistItems = [
+    "Emergency Medical Treatment",
+    "Highly Experienced Doctors",
+    "Highest Success Rate",
+    "Telephone Service",
+  ];
+
+  const checkmarkSvg =
+    '<circle cx="12" cy="12" r="11" stroke="#c7ecd6" stroke-width="2" /><path d="m7 12 3 3 7-7" stroke="#37b24d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />';
+
+  // Generate cards
+  pricingData.forEach((plan) => {
+    const slide = document.createElement("div");
+    slide.className = "swiper-slide";
+
+    const checklistHtml = checklistItems
+      .map(
+        (item) =>
+          `<li>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          ${checkmarkSvg}
+        </svg>
+        ${item}
+      </li>`
+      )
+      .join("");
+
+    slide.innerHTML = `
+      <article class="price-card">
+        <div class="price-icon">
+          <svg class="${plan.iconClass}" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            ${plan.iconSvg}
+          </svg>
+        </div>
+        <h3 class="price-title">${plan.title}</h3>
+        <div class="price">${plan.price}</div>
+        <div class="per">/year</div>
+        <ul class="checklist">
+          ${checklistHtml}
+        </ul>
+        <div class="cta">
+          <a class="button" href="#">Apply now</a>
+        </div>
+      </article>
+    `;
+
+    pricingWrapper.appendChild(slide);
+  });
 }
