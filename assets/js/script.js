@@ -491,9 +491,7 @@ function initBlogSection() {
   toggleBtn.addEventListener("click", () => {
     toggleBtn.disabled = true;
     const expanding = visibleCount < cards.length;
-    visibleCount = expanding
-      ? Math.min(visibleCount + 2, cards.length)
-      : cardsToShow;
+    visibleCount = expanding ? cards.length : cardsToShow;
 
     updateCardsVisibility();
 
