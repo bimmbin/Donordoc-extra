@@ -252,7 +252,7 @@ function initSwipers() {
     allowTouchMove: true,
     speed: 800, // Reduced from 3000
     autoplay: {
-      delay: 3000,
+      delay: 20000,
       disableOnInteraction: false,
       enabled: false, // Disabled by default
     },
@@ -841,21 +841,21 @@ function initPricingCards() {
     {
       title: "Health Checkup",
       price: "$99",
-      iconClass: "icon",
+      iconClass: "icon-normal",
       iconSvg:
         '<path d="M6 3v6a4 4 0 1 0 8 0V3M2 6h8M14 11a5 5 0 0 0 5 5h1a2 2 0 1 1-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />',
     },
     {
       title: "Dental Care",
       price: "$149",
-      iconClass: "icon",
+      iconClass: "icon-normal",
       iconSvg:
         '<path d="M7 3c-2 0-4 2-4 5 0 6 3 8 4 8 1 0 2-2 3-2s2 2 3 2 4-2 4-8c0-3-2-5-4-5-2 0-3 1-3 1s-1-1-3-1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /><circle cx="16.8" cy="7.2" r="1.2" fill="currentColor" />',
     },
     {
       title: "Operation",
       price: "$199",
-      iconClass: "icon",
+      iconClass: "icon-normal",
       iconSvg:
         '<path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />',
     },

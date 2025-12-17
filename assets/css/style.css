@@ -1595,6 +1595,11 @@ main .section-pricing .icon-lg {
   height: 56px;
   color: #37b24d;
 }
+main .section-pricing .icon-normal {
+  width: 40px;
+  height: 40px;
+  color: #37b24d;
+}
 main .section-pricing .doctor__contact a {
   text-decoration: none;
 }
