@@ -1590,12 +1590,6 @@ main .section-pricing .price-card .button:hover {
   transform: translateY(-1px);
   background: #2f9e44;
 }
-main .section-pricing .icon {
-  width: 40px;
-  height: 40px;
-  display: block;
-  color: #37b24d;
-}
 main .section-pricing .icon-lg {
   width: 56px;
   height: 56px;
@@ -1983,18 +1977,35 @@ main .blog-section .blog-card {
   will-change: opacity, transform;
   transition: max-height 0.8s ease-out, opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-main .blog-section .blog-card.blog-card--hidden {
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-20px);
-  pointer-events: none;
-}
 main .blog-section .blog-card .card {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
   overflow: hidden;
   height: 100%;
+  background: #ffffff;
+  transform: translateY(0);
+  transition: transform 0.18s ease-out;
+}
+main .blog-section .blog-card:hover .card, main .blog-section .blog-card:focus-within .card {
+  transform: translateY(-6px);
+}
+main .blog-section .blog-card .blog-card-image {
+  position: relative;
+  overflow: hidden;
+}
+main .blog-section .blog-card .blog-card-image img {
+  transform: scale(1);
+  transition: transform 0.25s ease-out;
+}
+main .blog-section .blog-card:hover .blog-card-image img, main .blog-section .blog-card:focus-within .blog-card-image img {
+  transform: scale(1.05);
+}
+main .blog-section .blog-card.blog-card--hidden {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
 }
 main .blog-section .blog-card .blog-card-inner {
   display: flex;

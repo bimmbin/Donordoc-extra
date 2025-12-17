@@ -252,7 +252,7 @@ function initSwipers() {
     allowTouchMove: true,
     speed: 800, // Reduced from 3000
     autoplay: {
-      delay: 20000,
+      delay: 3000,
       disableOnInteraction: false,
       enabled: false, // Disabled by default
     },
@@ -438,7 +438,7 @@ function initCustomSelects() {
 }
 
 function initBlogSection() {
-  const container = document.querySelector(".blog-section .row");
+  const container = document.querySelector(".blog-section .blog-grid");
   if (!container) return;
 
   const cards = container.querySelectorAll(":scope > .blog-card");

@@ -1843,14 +1843,6 @@ main {
       }
     }
 
-    // Icon sizing helpers
-    .icon {
-      width: 40px;
-      height: 40px;
-      display: block;
-      color: #37b24d;
-    }
-
     .icon-lg {
       width: 56px;
       height: 56px;
@@ -2303,13 +2295,6 @@ main {
       transition: max-height $blog-transition ease-out,
         opacity $blog-transition ease-out, transform $blog-transition ease-out;
 
-      &.blog-card--hidden {
-        max-height: 0;
-        opacity: 0;
-        transform: translateY(-20px);
-        pointer-events: none;
-      }
-
       // Desktop blog card layout
       .card {
         display: flex;
@@ -2317,6 +2302,36 @@ main {
         border-radius: 20px;
         overflow: hidden;
         height: 100%;
+        background: #ffffff;
+        transform: translateY(0);
+        transition: transform 0.18s ease-out;
+      }
+
+      &:hover .card,
+      &:focus-within .card {
+        transform: translateY(-6px);
+      }
+
+      .blog-card-image {
+        position: relative;
+        overflow: hidden;
+
+        img {
+          transform: scale(1);
+          transition: transform 0.25s ease-out;
+        }
+      }
+
+      &:hover .blog-card-image img,
+      &:focus-within .blog-card-image img {
+        transform: scale(1.05);
+      }
+
+      &.blog-card--hidden {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
       }
 
       .blog-card-inner {
